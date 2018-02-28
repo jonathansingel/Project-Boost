@@ -19,19 +19,19 @@ public class Rocket : MonoBehaviour {
 
     private void ProcessInput()
     {
-        if(Input.GetKey(KeyCode.Space)) //can thrust while rotating
+        if(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
             rigidBody.AddRelativeForce(Vector3.up);
         }
 
         if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
-            print("Rotating left");
+            transform.Rotate(Vector3.forward);
         }
 
         if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
-            print("Rotating right");
+            transform.Rotate(Vector3.back);
         }
     }
 }
