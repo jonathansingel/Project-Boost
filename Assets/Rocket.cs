@@ -24,6 +24,19 @@ public class Rocket : MonoBehaviour {
         CheckRotation();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        switch(collision.gameObject.tag)
+        {
+            case "Friendly":
+                print("Oops. I'm alive.");
+                break;
+            default:
+                print("I'm so dead.");
+                break;
+        }
+    }
+
     private void CheckThrust()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
